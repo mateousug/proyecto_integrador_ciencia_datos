@@ -1,0 +1,6 @@
+.venv
+
+.streamlit/secrets.toml
+.streamlit/secrets.yaml
+.streamlit/secrets.json
+
