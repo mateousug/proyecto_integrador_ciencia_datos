@@ -1,0 +1,32 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2014-09-16,Bayern Munich,AS Roma,2,1,Grupos,Allianz Arena
+2014-09-16,Barcelona,Paris Saint-Germain,3,0,Grupos,Camp Nou
+2014-09-17,Real Madrid,CSKA Moscú,3,0,Grupos,Santiago Bernabéu
+2014-09-17,Arsenal,Borussia Dortmund,2,1,Grupos,Emirates Stadium
+2014-10-01,Paris Saint-Germain,Barcelona,2,2,Grupos,Parc des Princes
+2014-10-01,AS Roma,Bayern Munich,0,2,Grupos,Stadio Olimpico
+2014-10-02,CSKA Moscú,Real Madrid,1,3,Grupos,Arena CSKA
+2014-10-02,Borussia Dortmund,Arsenal,2,1,Grupos,Signal Iduna Park
+2014-10-22,Barcelona,Paris Saint-Germain,3,1,Grupos,Camp Nou
+2014-10-22,Bayern Munich,AS Roma,7,1,Grupos,Allianz Arena
+2014-10-23,Real Madrid,CSKA Moscú,2,1,Grupos,Santiago Bernabéu
+2014-10-23,Arsenal,Borussia Dortmund,0,2,Grupos,Emirates Stadium
+2014-11-04,AS Roma,Bayern Munich,1,3,Grupos,Stadio Olimpico
+2014-11-04,Paris Saint-Germain,Barcelona,0,1,Grupos,Parc des Princes
+2014-11-05,CSKA Moscú,Real Madrid,1,3,Grupos,Arena CSKA
+2014-11-05,Borussia Dortmund,Arsenal,1,0,Grupos,Signal Iduna Park
+2014-11-25,AS Roma,CSKA Moscú,1,1,Grupos,Stadio Olimpico
+2014-11-25,Barcelona,Borussia Dortmund,2,1,Grupos,Camp Nou
+2014-11-26,Real Madrid,Paris Saint-Germain,1,0,Grupos,Santiago Bernabéu
+2014-11-26,Bayern Munich,Arsenal,1,0,Grupos,Allianz Arena
+2015-02-17,Bayern Munich,Arsenal,2,0,Octavos,Allianz Arena
+2015-02-18,Barcelona,Manchester City,2,0,Octavos,Camp Nou
+2015-02-24,Manchester City,Barcelona,1,2,Octavos,Etihad Stadium
+2015-02-25,Arsenal,Bayern Munich,0,2,Octavos,Emirates Stadium
+2015-03-10,Real Madrid,Roma,2,0,Cuartos,Santiago Bernabéu
+2015-03-11,Juventus,Monaco,1,0,Cuartos,Stadio Olimpico
+2015-03-17,Monaco,Juventus,0,0,Cuartos,Stade Louis II
+2015-03-17,Roma,Real Madrid,0,4,Cuartos,Stadio Olimpico
+2015-04-21,Real Madrid,Bayern Munich,1,2,Semifinal,Santiago Bernabéu
+2015-04-29,Bayern Munich,Real Madrid,3,1,Semifinal,Allianz Arena
+2015-05-30,Barcelona,Juventus,3,1,Final,Olympiastadion

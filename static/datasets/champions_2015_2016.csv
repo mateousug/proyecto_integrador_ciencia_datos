@@ -1,0 +1,41 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2015-09-15,Bayern Munich,Maccabi Tel Aviv,6,0,Grupos,Allianz Arena
+2015-09-15,Barcelona,AS Roma,6,1,Grupos,Camp Nou
+2015-09-16,Real Madrid,PSV Eindhoven,2,0,Grupos,Santiago Bernabéu
+2015-09-16,Arsenal,Dinamo Zagreb,1,0,Grupos,Emirates Stadium
+2015-09-30,PSV Eindhoven,Real Madrid,0,2,Grupos,Philips Stadion
+2015-09-30,AS Roma,Barcelona,0,1,Grupos,Stadio Olimpico
+2015-10-01,Maccabi Tel Aviv,Bayern Munich,0,5,Grupos,Ramat Hasharon
+2015-10-01,Dinamo Zagreb,Arsenal,0,2,Grupos,Stadion Maksimir
+2015-10-20,Barcelona,Dinamo Zagreb,6,0,Grupos,Camp Nou
+2015-10-20,Bayern Munich,PSV Eindhoven,3,1,Grupos,Allianz Arena
+2015-10-21,AS Roma,Maccabi Tel Aviv,2,1,Grupos,Stadio Olimpico
+2015-10-21,Real Madrid,Arsenal,1,0,Grupos,Santiago Bernabéu
+2015-11-03,Arsenal,AS Roma,0,0,Grupos,Emirates Stadium
+2015-11-04,PSV Eindhoven,Dinamo Zagreb,0,0,Grupos,Philips Stadion
+2015-11-24,AS Roma,Arsenal,1,2,Grupos,Stadio Olimpico
+2015-11-25,Real Madrid,Maccabi Tel Aviv,2,0,Grupos,Santiago Bernabéu
+2015-12-08,Dinamo Zagreb,Bayern Munich,0,2,Grupos,Stadion Maksimir
+2015-12-09,Maccabi Tel Aviv,Barcelona,1,3,Grupos,Ramat Hasharon
+2016-02-16,Real Madrid,Roma,2,0,Octavos,Santiago Bernabéu
+2016-02-17,Bayern Munich,Juventus,2,2,Octavos,Allianz Arena
+2016-02-23,Juventus,Bayern Munich,2,0,Octavos,Stadio Olimpico
+2016-02-23,Roma,Real Madrid,0,1,Octavos,Stadio Olimpico
+2016-03-08,PSV Eindhoven,Atletico Madrid,0,1,Octavos,Philips Stadion
+2016-03-15,Manchester City,Juventus,2,1,Octavos,Etihad Stadium
+2016-03-16,Barcelona,Arsenal,2,0,Octavos,Camp Nou
+2016-03-16,Bayern Munich,Benfica,1,0,Octavos,Allianz Arena
+2016-03-21,Atletico Madrid,PSV Eindhoven,0,0,Octavos,Wanda Metropolitano
+2016-03-21,Arsenal,Barcelona,0,2,Octavos,Emirates Stadium
+2016-03-21,Real Madrid,Wolfsburg,3,0,Octavos,Santiago Bernabéu
+2016-03-28,Juventus,Manchester City,0,0,Octavos,Stadio Olimpico
+2016-04-12,Real Madrid,Atletico Madrid,1,1,Cuartos,Santiago Bernabéu
+2016-04-13,Bayern Munich,Benfica,1,2,Cuartos,Allianz Arena
+2016-04-19,Benfica,Bayern Munich,2,0,Cuartos,Estádio da Luz
+2016-04-19,Atletico Madrid,Real Madrid,2,1,Cuartos,Wanda Metropolitano
+2016-05-03,Real Madrid,Manchester City,0,0,Semifinal,Santiago Bernabéu
+2016-05-03,Bayern Munich,Atletico Madrid,1,1,Semifinal,Allianz Arena
+2016-05-10,Manchester City,Real Madrid,1,2,Semifinal,Etihad Stadium
+2016-05-10,Atletico Madrid,Bayern Munich,0,2,Semifinal,Wanda Metropolitano
+2016-05-28,Real Madrid,Atletico Madrid,1,1,Final,Stade de France
+2016-05-28,Real Madrid,Atletico Madrid,5,3,Final Extra,Stade de France

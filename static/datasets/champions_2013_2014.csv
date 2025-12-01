@@ -1,0 +1,32 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2013-09-17,Bayern Munich,Maccabi Haifa,2,1,Grupos,Allianz Arena
+2013-09-17,Barcelona,AC Milan,2,0,Grupos,Camp Nou
+2013-09-18,Real Madrid,Galatasaray,6,1,Grupos,Santiago Bernabéu
+2013-09-18,Arsenal,Dortmund,1,2,Grupos,Emirates Stadium
+2013-10-01,Galatasaray,Real Madrid,1,6,Grupos,Türk Telekom Arena
+2013-10-01,AC Milan,Barcelona,0,2,Grupos,San Siro
+2013-10-02,Maccabi Haifa,Bayern Munich,0,2,Grupos,Ramat Hasharon
+2013-10-02,Dortmund,Arsenal,2,1,Grupos,Signal Iduna Park
+2013-10-22,Barcelona,AC Milan,3,1,Grupos,Camp Nou
+2013-10-22,Bayern Munich,Maccabi Haifa,5,2,Grupos,Allianz Arena
+2013-10-23,Galatasaray,Real Madrid,1,2,Grupos,Türk Telekom Arena
+2013-10-23,Arsenal,Dortmund,0,2,Grupos,Emirates Stadium
+2013-11-05,Real Madrid,Galatasaray,2,0,Grupos,Santiago Bernabéu
+2013-11-05,AC Milan,Barcelona,1,3,Grupos,San Siro
+2013-11-06,Maccabi Haifa,Bayern Munich,0,5,Grupos,Ramat Hasharon
+2013-11-06,Dortmund,Arsenal,1,0,Grupos,Signal Iduna Park
+2013-11-26,AC Milan,Bayern Munich,2,2,Grupos,San Siro
+2013-11-26,Barcelona,Galatasaray,4,0,Grupos,Camp Nou
+2013-11-27,Real Madrid,Dortmund,2,0,Grupos,Santiago Bernabéu
+2013-11-27,Arsenal,Maccabi Haifa,3,0,Grupos,Emirates Stadium
+2014-02-18,Bayern Munich,Arsenal,2,0,Octavos,Allianz Arena
+2014-02-19,Barcelona,Manchester City,2,0,Octavos,Camp Nou
+2014-02-25,Manchester City,Barcelona,0,2,Octavos,Etihad Stadium
+2014-02-25,Arsenal,Bayern Munich,1,2,Octavos,Emirates Stadium
+2014-03-11,Real Madrid,Schalke 04,2,0,Cuartos,Santiago Bernabéu
+2014-03-12,Borussia Dortmund,Juventus,2,1,Cuartos,Signal Iduna Park
+2014-03-18,Juventus,Borussia Dortmund,2,0,Cuartos,Stadio Olimpico
+2014-03-18,Schalke 04,Real Madrid,1,6,Cuartos,Veltins Arena
+2014-04-22,Real Madrid,Bayern Munich,1,0,Semifinal,Santiago Bernabéu
+2014-04-25,Bayern Munich,Real Madrid,0,4,Semifinal,Allianz Arena
+2014-05-24,Real Madrid,Atletico Madrid,4,1,Final,Estádio da Luz
