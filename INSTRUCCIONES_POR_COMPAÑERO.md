@@ -25,7 +25,7 @@ Completar la **limpieza de datos** y **evaluación/interpretación** para transf
 # Guarda en: static/datasets/
 # Archivos esperados:
 # - champions_2013_2014.csv
-# - champions_2014_2015.csv  
+# - champions_2014_2015.csv
 # - champions_2015_2016.csv
 ```
 
