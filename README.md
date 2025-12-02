@@ -399,7 +399,7 @@ streamlit run Inicio.py --server.port=8080 --server.headless=true
 
 | Fuente | URL | Formato | Cobertura | Licencia |
 |--------|-----|---------|-----------|----------|
-| **Kaggle** | https://www.kaggle.com/datasets/elvinagammed/the-champions-league/data | CSV | 2013-2016 | CC0 |
+| **Kaggle** | https://www.kaggle.com/datasets/elvinagammed/the-champions-league/data | CSV | 2010-2021 | CC0 |
 | **StatsBomb** | https://github.com/statsbomb/open-data | JSON | Histórico | CC0 |
 | **Football-Data.co.uk** | http://www.football-data.co.uk/ | CSV | Años variados | Público |
 
@@ -410,18 +410,26 @@ streamlit run Inicio.py --server.port=8080 --server.headless=true
 https://www.kaggle.com/datasets/elvinagammed/the-champions-league/data
 ```
 
-**Paso 2:** Descargar archivos CSV de temporadas:
-- `champions_2015_2016.csv`
-- `champions_2014_2015.csv`
-- `champions_2013_2014.csv`
+**Paso 2:** Descargar archivos CSV de temporadas disponibles (2010-2021 o cualquier rango)
 
-**Paso 3:** Guardar en:
+**Paso 3:** Guardar en `static/datasets/` con formato:
 ```
 static/datasets/
-├── champions_2015_2016.csv
+├── champions_2010_2011.csv
+├── champions_2011_2012.csv
+├── champions_2012_2013.csv
+├── champions_2013_2014.csv
 ├── champions_2014_2015.csv
-└── champions_2013_2014.csv
+├── champions_2015_2016.csv
+├── champions_2016_2017.csv
+├── champions_2017_2018.csv
+├── champions_2018_2019.csv
+├── champions_2019_2020.csv
+├── champions_2020_2021.csv
+└── diccionario_datos.json
 ```
+
+**Nota:** El sistema detecta automáticamente todos los archivos `champions_YYYY_YYYY.csv` en la carpeta `static/datasets/`, por lo que puedes agregar o remover temporadas sin necesidad de actualizar el código.
 
 ### Estructura de Datos Esperada
 

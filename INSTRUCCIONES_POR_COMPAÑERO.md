@@ -23,10 +23,20 @@ Completar la **limpieza de datos** y **evaluación/interpretación** para transf
 # URL: https://www.kaggle.com/datasets/elvinagammed/the-champions-league/data
 
 # Guarda en: static/datasets/
-# Archivos esperados:
+# Archivos esperados (2010-2021):
+# - champions_2010_2011.csv
+# - champions_2011_2012.csv
+# - champions_2012_2013.csv
 # - champions_2013_2014.csv
 # - champions_2014_2015.csv
 # - champions_2015_2016.csv
+# - champions_2016_2017.csv
+# - champions_2017_2018.csv
+# - champions_2018_2019.csv
+# - champions_2019_2020.csv
+# - champions_2020_2021.csv
+
+# NOTA: El sistema detecta automáticamente todos los archivos champions_*.csv
 ```
 
 **2. Estructura de Código a Implementar**

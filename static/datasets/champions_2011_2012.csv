@@ -1,0 +1,18 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2011-09-13,Bayern Munich,Napoli,2,1,Grupos,Allianz Arena
+2011-09-13,Barcelona,Milan,2,0,Grupos,Camp Nou
+2011-09-14,Real Madrid,Manchester City,3,2,Grupos,Santiago Bernabéu
+2011-09-14,Arsenal,Borussia Dortmund,1,2,Grupos,Emirates Stadium
+2011-10-04,Manchester City,Real Madrid,0,1,Grupos,Etihad Stadium
+2011-10-04,Milan,Barcelona,0,2,Grupos,San Siro
+2011-10-25,Napoli,Bayern Munich,0,3,Grupos,San Paolo
+2011-10-25,Borussia Dortmund,Arsenal,2,1,Grupos,Signal Iduna Park
+2011-11-22,Barcelona,Real Madrid,2,1,Octavos,Camp Nou
+2011-11-29,Bayern Munich,Marseille,2,1,Octavos,Allianz Arena
+2012-02-21,Chelsea,Napoli,1,0,Octavos,Stamford Bridge
+2012-02-22,Real Madrid,Apoel,5,0,Octavos,Santiago Bernabéu
+2012-04-03,Barcelona,Chelsea,1,1,Cuartos,Camp Nou
+2012-04-04,Real Madrid,Bayern Munich,2,1,Cuartos,Santiago Bernabéu
+2012-04-25,Chelsea,Barcelona,2,2,Semifinal,Stamford Bridge
+2012-04-26,Bayern Munich,Real Madrid,0,3,Semifinal,Allianz Arena
+2012-05-19,Chelsea,Bayern Munich,1,1,Final,Allianz Arena
