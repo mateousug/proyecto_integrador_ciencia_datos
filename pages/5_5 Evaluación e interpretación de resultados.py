@@ -2,12 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-from sklearn.preprocessing import LabelEncoder
+import plotly.graph_objects as go
 from utils.data_loader import load_champions_data, prepare_data
-from utils.visualizations import create_confusion_matrix
 
 st.set_page_config(page_title="Evaluación de Resultados", page_icon="📊")
 
@@ -39,63 +35,70 @@ with col1:
     El objetivo es predecir: **Victoria Local, Empate o Victoria Visitante**.
     """)
 
-# Preprocesamiento simple para el modelo
-le_fase = LabelEncoder()
-df['fase_encoded'] = le_fase.fit_transform(df['fase'])
-
-# Features para el modelo (simulado para demostración)
-# Usamos features que estarían disponibles ANTES del partido en un modelo real (ej. históricos)
-# Pero aquí usaremos una simplificación para mostrar el flujo
-X = df[['fase_encoded']] # Feature muy simple solo para demo
-y = df['resultado']
-
-# Split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+# Análisis descriptivo
+resultado_counts = df['resultado'].value_counts()
+total_partidos = len(df)
 
 with col2:
-    st.metric("Datos de Entrenamiento", len(X_train))
-    st.metric("Datos de Prueba", len(X_test))
+    st.metric("Total de Partidos", total_partidos)
+    st.metric("Clases Resultado", len(resultado_counts))
 
-# 2. Entrenamiento y Evaluación
-st.header("2. Resultados del Modelo")
+# 2. Análisis de Distribución de Resultados
+st.header("2. Distribución de Resultados")
 
-if st.button("🚀 Entrenar Modelo"):
-    # Entrenar modelo
-    clf = RandomForestClassifier(n_estimators=100, random_state=42)
-    clf.fit(X_train, y_train)
-    
-    # Predicciones
-    y_pred = clf.predict(X_test)
-    
-    # Métricas
-    acc = accuracy_score(y_test, y_pred)
-    
-    col_m1, col_m2, col_m3 = st.columns(3)
-    col_m1.metric("Accuracy (Exactitud)", f"{acc:.2%}")
-    col_m2.metric("Baseline (Azar)", "33.33%")
-    col_m3.metric("Mejora sobre Baseline", f"{(acc - 0.3333):.2%}")
-    
-    # Matriz de Confusión
-    st.subheader("Matriz de Confusión")
-    cm = confusion_matrix(y_test, y_pred, labels=clf.classes_)
-    st.plotly_chart(create_confusion_matrix(cm, clf.classes_), use_container_width=True)
-    
-    # Reporte de Clasificación
-    st.subheader("Reporte Detallado")
-    report = classification_report(y_test, y_pred, output_dict=True)
-    st.dataframe(pd.DataFrame(report).transpose(), use_container_width=True)
-    
-    st.warning("""
-    **Interpretación:**
-    El modelo actual es muy básico (solo usa la fase del torneo). 
-    Para mejorar el rendimiento real, necesitaríamos agregar features históricas como:
-    * Rendimiento previo de los equipos
-    * Valor de mercado de la plantilla
-    * Historial de enfrentamientos directos
-    """)
+# Gráfico de distribución
+fig_resultado = px.bar(
+    resultado_counts.reset_index(),
+    x='resultado',
+    y='count',
+    title='Distribución de Resultados en la Liga de Campeones',
+    labels={'resultado': 'Resultado', 'count': 'Cantidad de Partidos'},
+    color='resultado',
+    color_discrete_map={
+        'Victoria Local': '#3498db',
+        'Empate': '#95a5a6',
+        'Victoria Visitante': '#e74c3c'
+    }
+)
+st.plotly_chart(fig_resultado, use_container_width=True)
 
-else:
-    st.info("Presiona el botón para entrenar el modelo y ver los resultados.")
+# Estadísticas
+col_e1, col_e2, col_e3 = st.columns(3)
+for idx, (resultado, count) in enumerate(resultado_counts.items()):
+    percentage = (count / total_partidos) * 100
+    cols = [col_e1, col_e2, col_e3]
+    with cols[idx % 3]:
+        st.metric(resultado, f"{count} ({percentage:.1f}%)")
+
+# 3. Análisis por Fase del Torneo
+st.header("3. Análisis por Fase del Torneo")
+
+fase_resultado = pd.crosstab(df['fase'], df['resultado'], margins=True)
+st.subheader("Tabla Cruzada: Fase vs Resultado")
+st.dataframe(fase_resultado, use_container_width=True)
+
+# Gráfico por fases
+fase_resultado_grouped = df.groupby(['fase', 'resultado']).size().reset_index(name='count')
+fig_fase = px.bar(
+    fase_resultado_grouped,
+    x='fase',
+    y='count',
+    color='resultado',
+    title='Resultados por Fase del Torneo',
+    labels={'fase': 'Fase', 'count': 'Cantidad de Partidos', 'resultado': 'Resultado'},
+    barmode='group'
+)
+st.plotly_chart(fig_fase, use_container_width=True)
+
+st.info("""
+**Interpretación:**
+Este análisis explorador evalúa cómo se distribuyen los resultados en diferentes fases.
+Una estrategia de modelado futuro podría incluir:
+* Datos históricos de rendimiento de equipos
+* Estadísticas previas de goles
+* Historial de enfrentamientos directos
+* Factores contextuales (lesiones, descanso entre partidos)
+""")
 
 # 3. Interpretación de Negocio
 st.header("3. Interpretación para el Negocio")
