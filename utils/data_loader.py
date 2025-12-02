@@ -4,36 +4,47 @@ Módulo para cargar y procesar datos de Champions League
 import pandas as pd
 import streamlit as st
 from pathlib import Path
+import glob
 
 @st.cache_data
 def load_champions_data(season: str = "all") -> pd.DataFrame:
     """
-    Carga los datos de Champions League
+    Carga los datos de Champions League automáticamente desde static/datasets/
+    
+    Detecta y carga todos los archivos CSV de champions_YYYY_YYYY.csv disponibles.
     
     Args:
-        season: "2013_2014", "2014_2015", "2015_2016", o "all" para todos
+        season: Temporada específica (ej: "2013_2014") o "all" para todos
     
     Returns:
         DataFrame con los datos de Champions League
     """
     base_path = Path("static/datasets")
     
-    datasets = {
-        "2013_2014": base_path / "champions_2013_2014.csv",
-        "2014_2015": base_path / "champions_2014_2015.csv",
-        "2015_2016": base_path / "champions_2015_2016.csv"
-    }
+    # Detectar automáticamente todos los archivos champions_*.csv
+    csv_files = sorted(glob.glob(str(base_path / "champions_*.csv")))
+    
+    if not csv_files:
+        raise ValueError("No se encontraron archivos CSV de Champions League en static/datasets/")
+    
+    # Crear diccionario dinámico de datasets
+    datasets = {}
+    for file_path in csv_files:
+        file_name = Path(file_path).stem  # Ej: "champions_2013_2014"
+        season_name = file_name.replace("champions_", "")  # Ej: "2013_2014"
+        datasets[season_name] = Path(file_path)
     
     if season == "all":
         dfs = []
-        for season_name, file_path in datasets.items():
+        for season_name, file_path in sorted(datasets.items()):
             df = pd.read_csv(file_path)
             df['temporada'] = season_name.replace("_", "-")
             dfs.append(df)
         return pd.concat(dfs, ignore_index=True)
     else:
         if season not in datasets:
-            raise ValueError(f"Temporada inválida: {season}")
+            temporadas_disponibles = ", ".join(sorted(datasets.keys()))
+            raise ValueError(f"Temporada '{season}' no encontrada. Disponibles: {temporadas_disponibles}")
         df = pd.read_csv(datasets[season])
         df['temporada'] = season.replace("_", "-")
         return df
@@ -42,22 +53,44 @@ def load_champions_data(season: str = "all") -> pd.DataFrame:
 @st.cache_data
 def get_data_info():
     """
-    Retorna información sobre los datasets disponibles
+    Retorna información sobre los datasets disponibles.
+    
+    Detecta automáticamente todos los archivos CSV de Champions League
+    en static/datasets/ y proporciona información sobre cada uno.
+    
+    Returns:
+        DataFrame con información sobre cada dataset
     """
     base_path = Path("static/datasets")
     
+    # Detectar automáticamente todos los archivos champions_*.csv
+    csv_files = sorted(glob.glob(str(base_path / "champions_*.csv")))
+    
     info = []
-    for season in ["2013_2014", "2014_2015", "2015_2016"]:
-        file_path = base_path / f"champions_{season}.csv"
-        if file_path.exists():
+    for file_path in csv_files:
+        file_obj = Path(file_path)
+        season = file_obj.stem.replace("champions_", "")
+        
+        try:
             df = pd.read_csv(file_path)
             info.append({
                 "Temporada": season.replace("_", "-"),
-                "Archivo": file_path.name,
+                "Archivo": file_obj.name,
                 "Filas": len(df),
                 "Columnas": len(df.columns),
-                "Tamaño (KB)": round(file_path.stat().st_size / 1024, 2)
+                "Tamaño (KB)": round(file_obj.stat().st_size / 1024, 2)
             })
+        except Exception as e:
+            info.append({
+                "Temporada": season.replace("_", "-"),
+                "Archivo": file_obj.name,
+                "Filas": "Error",
+                "Columnas": "Error",
+                "Tamaño (KB)": "Error"
+            })
+    
+    if not info:
+        raise ValueError("No se encontraron archivos CSV de Champions League")
     
     return pd.DataFrame(info)
 

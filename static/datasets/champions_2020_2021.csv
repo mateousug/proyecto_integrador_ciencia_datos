@@ -1,0 +1,16 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2020-10-20,Bayern Munich,Atletico Madrid,4,0,Grupos,Allianz Arena
+2020-10-20,Barcelona,Juventus,0,2,Grupos,Camp Nou
+2020-10-21,Paris Saint Germain,Manchester United,1,2,Grupos,Parc des Princes
+2020-10-21,Real Madrid,Borussia Mönchengladbach,2,2,Grupos,Santiago Bernabéu
+2020-11-03,Atletico Madrid,Bayern Munich,1,1,Grupos,Vicente Calderon
+2020-11-03,Juventus,Barcelona,3,0,Grupos,Juventus Stadium
+2021-02-16,Barcelona,PSG,1,4,Octavos,Camp Nou
+2021-02-17,Chelsea,Atletico Madrid,1,0,Octavos,Stamford Bridge
+2021-02-23,Bayern Munich,Lazio,4,1,Octavos,Allianz Arena
+2021-02-24,Manchester City,Borussia Mönchengladbach,2,0,Octavos,Etihad Stadium
+2021-04-06,PSG,Bayern Munich,2,3,Cuartos,Parc des Princes
+2021-04-07,Manchester City,Borussia Dortmund,2,1,Cuartos,Etihad Stadium
+2021-05-04,Paris Saint Germain,Manchester City,1,2,Semifinal,Parc des Princes
+2021-05-05,Chelsea,Real Madrid,1,1,Semifinal,Stamford Bridge
+2021-05-29,Manchester City,Chelsea,1,0,Final,Estádio do Dragão
