@@ -13,11 +13,25 @@ obtener explicaciones y generar insights profundos sobre la Champions League.
 """)
 
 # Configuración de API Key
-api_key = st.secrets.get("gemini_api_key")
+try:
+    api_key = st.secrets.get("gemini_api_key", None)
+except Exception:
+    api_key = None
+
+# Si no está en secrets, permitir ingresarla manualmente
+if not api_key:
+    with st.expander("⚙️ Configurar API Key de Gemini"):
+        st.markdown("""
+        1. Obtén tu API Key en: https://aistudio.google.com/apikey
+        2. Ingresa aquí tu clave (solo durante esta sesión)
+        """)
+        api_key = st.text_input("API Key de Gemini:", type="password", key="gemini_key_input")
+        
+        if not api_key:
+            st.info("💡 También puedes guardar la clave en `.streamlit/secrets.toml`:\n```\ngemini_api_key = \"TU_API_KEY\"\n```")
 
 if not api_key:
-    st.error("⚠️ No se encontró la API Key de Gemini. Por favor configúrala en `.streamlit/secrets.toml`.")
-    st.code('gemini_api_key = "TU_API_KEY_AQUI"', language="toml")
+    st.warning("⚠️ Se requiere una API Key para usar el asistente de IA")
     st.stop()
 
 # Configurar Gemini
