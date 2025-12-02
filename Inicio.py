@@ -59,9 +59,13 @@ st.markdown("""
 <div class="card">
     <h3>Bienvenido al Proyecto Integrador de Ciencia de Datos</h3>
     <p>
-        Este proyecto analiza datos históricos de la UEFA Champions League (temporadas 2013-2016) 
+        Este proyecto analiza datos históricos de la UEFA Champions League (temporadas 2010-2021) 
         para descubrir patrones de rendimiento, factores de éxito y tendencias evolutivas en el fútbol europeo de élite.
         Utilizamos metodología CRISP-DM y técnicas avanzadas de visualización e Inteligencia Artificial.
+    </p>
+    <p style="font-size: 0.9em; color: #666;">
+        <strong>✨ Ventaja del Proyecto:</strong> El sistema detecta automáticamente todos los archivos CSV disponibles,
+        lo que permite agregar nuevas temporadas sin modificar el código.
     </p>
 </div>
 """, unsafe_allow_html=True)

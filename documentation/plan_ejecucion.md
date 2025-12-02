@@ -90,11 +90,12 @@
     ```
 
 - [ ] **Organizar datasets**
-  - Renombrar archivos: `champions_2015_2016.csv`, `champions_2014_2015.csv`, etc.
+  - Renombrar archivos: `champions_YYYY_YYYY.csv` (ej: `champions_2013_2014.csv`)
   - Guardar en `static/datasets/`
+  - El sistema detecta automáticamente todos los archivos CSV
 
 - [ ] **Crear diccionario de datos**
-  - Archivo: `static/datasets/diccionario_champions.json`
+  - Archivo: `static/datasets/diccionario_datos.json`
   - Contenido:
     ```json
     {
