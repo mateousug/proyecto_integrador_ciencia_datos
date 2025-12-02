@@ -1,0 +1,16 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2018-09-18,Bayern Munich,Benfica,5,1,Grupos,Allianz Arena
+2018-09-18,Barcelona,PSV,4,0,Grupos,Camp Nou
+2018-09-19,Real Madrid,Roma,3,0,Grupos,Santiago Bernabéu
+2018-09-19,Manchester City,Hoffenheim,2,1,Grupos,Etihad Stadium
+2018-10-02,PSV,Barcelona,1,1,Grupos,Philips Stadion
+2018-10-02,Roma,Real Madrid,0,0,Grupos,Olimpico
+2018-10-23,Barcelona,Tottenham,1,1,Octavos,Camp Nou
+2018-10-24,Bayern Munich,Ajax,3,1,Octavos,Allianz Arena
+2019-02-19,Manchester United,PSG,0,2,Octavos,Old Trafford
+2019-02-20,Juventus,Atletico Madrid,2,0,Octavos,Juventus Stadium
+2019-04-02,Barcelona,Manchester United,1,0,Cuartos,Camp Nou
+2019-04-03,Real Madrid,Ajax,1,1,Cuartos,Santiago Bernabéu
+2019-04-30,Barcelona,Liverpool,3,0,Semifinal,Camp Nou
+2019-05-01,Tottenham,Ajax,0,1,Semifinal,Tottenham Hotspur Stadium
+2019-06-01,Liverpool,Tottenham,2,0,Final,Wanda Metropolitano

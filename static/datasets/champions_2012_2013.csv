@@ -1,0 +1,16 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2012-09-18,Bayern Munich,Valencia,2,1,Grupos,Allianz Arena
+2012-09-18,Barcelona,Celtic,3,0,Grupos,Camp Nou
+2012-09-19,Real Madrid,Ajax,2,1,Grupos,Santiago Bernabéu
+2012-09-19,PSG,Dynamo Kiev,4,0,Grupos,Parc des Princes
+2012-10-02,Valencia,Bayern Munich,0,1,Grupos,Mestalla
+2012-10-02,Ajax,Barcelona,0,2,Grupos,Amsterdam Arena
+2012-10-23,Barcelona,PSG,2,2,Octavos,Camp Nou
+2012-10-24,Bayern Munich,Arsenal,2,1,Octavos,Allianz Arena
+2012-02-20,Real Madrid,Manchester United,1,1,Octavos,Santiago Bernabéu
+2012-02-21,Juventus,Celtic,2,0,Octavos,Juventus Stadium
+2013-04-02,Barcelona,Paris Saint Germain,1,1,Cuartos,Camp Nou
+2013-04-03,Real Madrid,Borussia Dortmund,1,2,Cuartos,Santiago Bernabéu
+2013-04-24,Real Madrid,Bayern Munich,0,0,Semifinal,Santiago Bernabéu
+2013-04-25,Barcelona,Valencia,2,1,Semifinal,Camp Nou
+2013-05-25,Real Madrid,Borussia Dortmund,2,1,Final,Wembley

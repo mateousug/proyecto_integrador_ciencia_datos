@@ -1,0 +1,16 @@
+fecha,equipo_local,equipo_visitante,goles_local,goles_visitante,fase,estadio
+2017-09-12,Bayern Munich,Paris Saint Germain,3,0,Grupos,Allianz Arena
+2017-09-12,Barcelona,Juventus,0,0,Grupos,Camp Nou
+2017-09-13,Real Madrid,Borussia Dortmund,3,1,Grupos,Santiago Bernabéu
+2017-09-13,Manchester United,Benfica,1,0,Grupos,Old Trafford
+2017-10-03,Paris Saint Germain,Bayern Munich,3,2,Grupos,Parc des Princes
+2017-10-03,Juventus,Barcelona,0,2,Grupos,Juventus Stadium
+2017-10-24,Barcelona,Chelsea,1,1,Octavos,Camp Nou
+2017-10-25,Bayern Munich,Besiktas,1,1,Octavos,Allianz Arena
+2018-02-20,Paris Saint Germain,Real Madrid,1,2,Octavos,Parc des Princes
+2018-02-21,Liverpool,Porto,5,0,Octavos,Anfield
+2018-04-03,Barcelona,Roma,4,0,Cuartos,Camp Nou
+2018-04-04,Bayern Munich,Sevilla,2,1,Cuartos,Allianz Arena
+2018-04-24,Barcelona,Liverpool,3,0,Semifinal,Camp Nou
+2018-04-25,Real Madrid,Bayern Munich,2,2,Semifinal,Santiago Bernabéu
+2018-05-26,Real Madrid,Liverpool,3,1,Final,Olimpiyski
