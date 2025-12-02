@@ -37,7 +37,7 @@ if not api_key:
 # Configurar Gemini
 try:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-pro')
+    model = genai.GenerativeModel('gemini-2.0-flash')
 except Exception as e:
     st.error(f"Error al configurar Gemini: {str(e)}")
     st.stop()
@@ -117,13 +117,40 @@ if prompt := st.chat_input("Escribe tu pregunta aquí..."):
 st.markdown("---")
 st.subheader("💡 Sugerencias de Preguntas")
 
+suggested_questions = [
+    ("📊 Promedio de goles", "¿Cuál es el promedio de goles por partido?"),
+    ("🏟️ Ventaja de local", "Explícame la ventaja de jugar de local basándote en los datos.")
+]
+
 col1, col2 = st.columns(2)
+cols = [col1, col2]
 
-with col1:
-    if st.button("¿Cuál es el promedio de goles por partido?"):
-        # Esto no envía el mensaje automáticamente al chat input, pero el usuario puede copiarlo
-        st.info("Copia y pega: ¿Cuál es el promedio de goles por partido?")
-
-with col2:
-    if st.button("Explícame la ventaja de jugar de local"):
-        st.info("Copia y pega: Explícame la ventaja de jugar de local basándote en los datos.")
+for idx, (button_label, question) in enumerate(suggested_questions):
+    with cols[idx]:
+        if st.button(button_label, key=f"suggestion_{idx}", use_container_width=True):
+            # Agregar mensaje del usuario
+            st.session_state.messages.append({"role": "user", "content": question})
+            
+            # Generar respuesta
+            try:
+                system_prompt = f"""
+                Eres un experto analista de datos deportivos especializado en fútbol y la Champions League.
+                Tienes acceso al siguiente resumen de datos del proyecto:
+                {data_context}
+                
+                Responde a la pregunta del usuario basándote en estos datos y en tu conocimiento general sobre fútbol.
+                Sé conciso, profesional y usa formato Markdown para resaltar puntos clave.
+                Si te preguntan algo fuera del contexto de fútbol o datos, indica amablemente que solo puedes hablar del proyecto.
+                
+                Pregunta del usuario: {question}
+                """
+                
+                response = model.generate_content(system_prompt)
+                full_response = response.text
+                
+                # Guardar respuesta
+                st.session_state.messages.append({"role": "assistant", "content": full_response})
+                st.rerun()
+                
+            except Exception as e:
+                st.error(f"Error al generar respuesta: {str(e)}")
