@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 from utils.data_loader import load_champions_data, get_data_info
 import io
+from pathlib import Path
+import glob
 
 st.set_page_config(page_title="Recolección de Datos", page_icon="💾")
 
@@ -29,46 +31,69 @@ try:
         use_container_width=True,
         hide_index=True
     )
+    
+    # Estadísticas generales
+    col_stat1, col_stat2, col_stat3 = st.columns(3)
+    with col_stat1:
+        st.metric("📊 Temporadas Disponibles", len(info_df))
+    with col_stat2:
+        st.metric("📈 Total de Partidos", info_df["Filas"].sum())
+    with col_stat3:
+        st.metric("💾 Tamaño Total (KB)", round(info_df["Tamaño (KB)"].sum(), 2))
+        
 except Exception as e:
     st.error(f"Error al leer metadatos: {str(e)}")
 
 # 2. Exploración de Archivos Raw
 st.header("2. Exploración de Datos Crudos (Raw Data)")
 
-tabs = st.tabs(["2013-2014", "2014-2015", "2015-2016", "Consolidado"])
+# Detectar dinámicamente todas las temporadas disponibles
+base_path = Path("static/datasets")
+csv_files = sorted(glob.glob(str(base_path / "champions_*.csv")))
+temporadas = [Path(f).stem.replace("champions_", "") for f in csv_files]
 
-with tabs[0]:
-    st.subheader("Temporada 2013-2014")
-    df_13_14 = load_champions_data("2013_2014")
-    st.dataframe(df_13_14.head(10), use_container_width=True)
-    st.caption(f"Total de registros: {len(df_13_14)}")
+# Crear tabs dinámicamente
+tab_names = [t.replace("_", "-") for t in temporadas] + ["Consolidado"]
+tabs = st.tabs(tab_names)
 
-with tabs[1]:
-    st.subheader("Temporada 2014-2015")
-    df_14_15 = load_champions_data("2014_2015")
-    st.dataframe(df_14_15.head(10), use_container_width=True)
-    st.caption(f"Total de registros: {len(df_14_15)}")
+# Mostrar cada temporada en su tab
+for idx, (tab, temporada) in enumerate(zip(tabs[:-1], temporadas)):
+    with tab:
+        try:
+            df_season = load_champions_data(temporada)
+            st.subheader(f"Temporada {temporada.replace('_', '-')}")
+            st.dataframe(df_season.head(10), use_container_width=True)
+            st.caption(f"Total de registros: {len(df_season)}")
+        except Exception as e:
+            st.error(f"Error cargando temporada {temporada}: {str(e)}")
 
-with tabs[2]:
-    st.subheader("Temporada 2015-2016")
-    df_15_16 = load_champions_data("2015_2016")
-    st.dataframe(df_15_16.head(10), use_container_width=True)
-    st.caption(f"Total de registros: {len(df_15_16)}")
-
-with tabs[3]:
-    st.subheader("Dataset Consolidado")
-    df_all = load_champions_data("all")
-    st.dataframe(df_all.head(10), use_container_width=True)
-    st.caption(f"Total de registros consolidados: {len(df_all)}")
-    
-    # Descarga del dataset consolidado
-    csv = df_all.to_csv(index=False).encode('utf-8')
-    st.download_button(
-        label="📥 Descargar Dataset Consolidado (CSV)",
-        data=csv,
-        file_name="champions_league_2013_2016.csv",
-        mime="text/csv",
-    )
+# Tab consolidado
+with tabs[-1]:
+    st.subheader("Dataset Consolidado (Todas las Temporadas)")
+    try:
+        df_all = load_champions_data("all")
+        st.dataframe(df_all.head(10), use_container_width=True)
+        st.caption(f"Total de registros consolidados: {len(df_all)}")
+        
+        # Descarga del dataset consolidado
+        csv = df_all.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="📥 Descargar Dataset Consolidado (CSV)",
+            data=csv,
+            file_name="champions_league_consolidated.csv",
+            mime="text/csv",
+        )
+        
+        # Información del consolidado
+        col_info1, col_info2, col_info3 = st.columns(3)
+        with col_info1:
+            st.metric("Años Cubiertos", f"{df_all['temporada'].min()} a {df_all['temporada'].max()}")
+        with col_info2:
+            st.metric("Equipos Únicos", len(pd.concat([df_all['equipo_local'], df_all['equipo_visitante']]).unique()))
+        with col_info3:
+            st.metric("Total de Goles", int(df_all['goles_local'].sum() + df_all['goles_visitante'].sum()))
+    except Exception as e:
+        st.error(f"Error cargando datos consolidados: {str(e)}")
 
 # 3. Reporte de Calidad Inicial
 st.header("3. Reporte de Calidad Inicial")
